@@ -23,26 +23,6 @@ class App extends Component {
     this.setState({songs});
   }
 
-/*
-  addSong(songName) {
-
-  }
-
-  handleRemoveClick = (e) => {
-    console.log("remove: " + e.target.id);
-    this.setState({
-      songs: this.state.songs.filter(s => s.id !== e.target.id)
-    })
-  }
-
-  handleSongNameChange = () => {
-
-  }
-
-  handleSongAdd = () => {
-
-  }
-*/
   render() {
 
     return (
@@ -54,20 +34,15 @@ class App extends Component {
             <Route exact path="/songs" render={(props) => {
               const songIds = Object.keys(this.state.songs);
               return (
-                <div>
                 <ul>
                   {songIds.map((id) => {
                     return (
                       <li key={id}>
                         <Link to={`/songs/${id}`}>Song {id}</Link>
-                        //<button id={id} onClick={this.handleRemoveClick}>Remove {id}</button>
                       </li>
                     )
                   })}
                 </ul>
-                <input type='text' value="new song" onChange={this.handleSongNameChange} />
-                //<button onClick={this.handleAddSong}>Add Song</button>
-                </div>
               )
             }} />
               <Route path="/songs/:songId" render={(props) => {
